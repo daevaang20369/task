@@ -11,7 +11,7 @@ function App() {
     }
     try {
       const response = await fetch(
-        `http://localhost:2000/api/greet?name=${name}`
+        `https://task-delta-umber.vercel.app/api/greet?name=${name}`
       );
       const data = await response.json();
       setMessage(data.message || data.error);
