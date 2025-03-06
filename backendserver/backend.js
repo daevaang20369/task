@@ -3,7 +3,9 @@ const cors = require("cors");
 
 const app = express();
 // app.use(cors());
-
+app.get("/", (req, res) => {
+    res.json({ message: "hi" });
+});
 app.get("/api/greet", (req, res) => {
     const name = req.query.name;
     if (!name) {
@@ -11,9 +13,7 @@ app.get("/api/greet", (req, res) => {
     }
     res.json({ message: `Hello, ${name}! Welcome to Younglabs.` });
 });
-app.get("/", (req, res) => {
-    res.json({ message: "hi" });
-});
+
 
 const PORT = 2000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
