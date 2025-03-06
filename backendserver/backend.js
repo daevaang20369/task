@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 
 app.get("/api/greet", (req, res) => {
     const name = req.query.name;
@@ -10,6 +10,9 @@ app.get("/api/greet", (req, res) => {
         return res.json({ error: "Name is required." });
     }
     res.json({ message: `Hello, ${name}! Welcome to Younglabs.` });
+});
+app.get("/", (req, res) => {
+    res.json({ message: "hi" });
 });
 
 const PORT = 2000;
