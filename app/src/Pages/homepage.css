@@ -1,0 +1,12 @@
+.containerdiv{
+    background-color: rgba(254, 254, 254, 0.645);
+    width: 30%;
+    height: 30vh;
+    margin: auto;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2rem;
+    
+}
