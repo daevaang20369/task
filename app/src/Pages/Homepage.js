@@ -5,14 +5,11 @@ function App() {
   const [message, setMessage] = useState("");
 
   const getGreeting = async () => {
-    if (!name) {
-      setMessage("Name is required.");
-      return;
-    }
     try {
       const response = await fetch(
-        `https://task-delta-umber.vercel.app/api/greet?name=${name}`
+        `api/greet?name=${name}`
       );
+      console.log(response)
       const data = await response.json();
       setMessage(data.message || data.error);
     } catch (error) {
