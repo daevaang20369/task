@@ -4,10 +4,9 @@ import axios from "axios";
 function App() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-
   const getGreeting = async () => {
     try {
-      const response = await axios.get(`/api/greet`, {
+      const response = await axios.get(`https://task-3-5jnz.onrender.com/api/greet`, {
         params: { name },
       });
   
