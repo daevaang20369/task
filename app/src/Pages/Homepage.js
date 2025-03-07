@@ -1,22 +1,23 @@
 import { useState } from "react";
 import "./homepage.css";
+import axios from "axios";
 function App() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
   const getGreeting = async () => {
     try {
-      const response = await fetch(
-        `api/greet?name=${name}`
-      );
-      console.log(response)
-      const data = await response.json();
-      setMessage(data.message || data.error);
+      const response = await axios.get(`/api/greet`, {
+        params: { name },
+      });
+  
+      console.log(response);
+      setMessage(response.data.message || response.data.error);
     } catch (error) {
+      console.error("Error fetching data:", error);
       setMessage("Error fetching data.");
     }
   };
-
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <div className="containerdiv">
